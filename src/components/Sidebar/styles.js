@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   padding: 16px;
 
-  background: ${({ theme }) => theme.colors.slate[50]};
+  background: ${({ theme }) => theme.colors.slate[100]};
 `;
 
 export const User = styled.div`

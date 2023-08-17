@@ -1,3 +1,8 @@
+import { useEffect, useState } from 'react';
+
+import { pentaho } from '../../services/api';
+import { parseCdf } from '../../utils/parseCdf';
+
 import { Link } from 'react-router-dom';
 
 import {
@@ -10,9 +15,28 @@ import {
 import avatar from '../../assets/images/avatar.svg';
 import sidebar from '../../assets/resources/sidebarItems';
 
-export default function Sidebar() {
 
-  const isAdmin = true;
+export default function Sidebar() {
+  const [user, setUser] = useState('');
+  const [roles, setRoles] = useState([]);
+
+  useEffect(() => {
+    async function loadUser() {
+      try {
+        const response = await pentaho.get('plugin/pentaho-cdf/api/cdf-embed.js');
+        const parsedResponse = parseCdf(response.data);
+
+        setRoles(parsedResponse.roles);
+        setUser(parsedResponse.user);
+      } catch(error) {
+        console.log('$Error: ', error);
+      }
+    }
+
+    loadUser();
+  }, []);
+
+  const isAdmin = roles.includes('Administrator');
 
   return (
     <Container>
@@ -21,8 +45,8 @@ export default function Sidebar() {
         <User>
           <img src={avatar} alt="Avatar do colaborador" className="avatar" />
           <div className="profile">
-            <strong>215433</strong>
-            <span>GETIC-SIS</span>
+            <strong>{user}</strong>
+            {isAdmin ? <span>Administrator</span> : <span>Colaborador</span>}
           </div>
         </User>
       </Link>

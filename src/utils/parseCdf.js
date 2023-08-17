@@ -1,4 +1,4 @@
-export function parseCDF(responseData){
+export function parseCdf(responseData){
   const contexto =  responseData.split(';')[1]
     .split('=')[1]
     .replace(',\nstorage: {}','')
