@@ -7,14 +7,21 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
+
   body {
     font-size: 16px;
   }
+
   button {
     cursor: pointer;
   }
+
   a {
     text-decoration: none;
     cursor: pointer;
+  }
+
+  svg, strong, span {
+      color: ${({ theme }) => theme.colors.slate[950]};
   }
 `;

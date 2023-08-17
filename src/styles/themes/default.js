@@ -1,3 +1,8 @@
 export default {
-  colors: '#FFF'
+  colors: {
+    slate: {
+      50: '#f8fafc',
+      950: '#020617'
+    }
+  }
 };
