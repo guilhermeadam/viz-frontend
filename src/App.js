@@ -1,6 +1,16 @@
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
+import GlobalStyles from './styles/global';
+import DefaultTheme from './styles/themes/default';
+
 function App() {
   return (
-    <strong>Viz</strong>
+    <BrowserRouter>
+      <ThemeProvider theme={DefaultTheme}>
+        <GlobalStyles />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
