@@ -22,6 +22,6 @@ export default createGlobalStyle`
   }
 
   svg, strong, span {
-      color: ${({ theme }) => theme.colors.slate[950]};
+      color: ${({ theme }) => theme.colors.slate[600]};
   }
 `;

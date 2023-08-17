@@ -1,5 +1,4 @@
 import {
-  FiCoffee,
   FiBell,
   FiBox,
   FiBarChart2,
@@ -18,12 +17,6 @@ const sidebar = [
     session: 'Principal',
     isProtected: false,
     sessionItems: [
-      {
-        name: 'SEI',
-        path: '/',
-        Icon: FiCoffee,
-        dev: false,
-      },
       {
         name: 'Notificação',
         path: '/notification',

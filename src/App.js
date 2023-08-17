@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/global';
@@ -10,8 +10,9 @@ import Sidebar from './components/Sidebar';
 import Router from './routes';
 
 function App() {
+
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider theme={DefaultTheme}>
         <GlobalStyles />
         <Layout>
@@ -19,7 +20,7 @@ function App() {
           <Router />
         </Layout>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

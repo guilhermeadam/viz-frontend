@@ -17,13 +17,15 @@ export default function Sidebar() {
   return (
     <Container>
 
-      <User>
-        <img src={avatar} alt="Avatar do colaborador" className="avatar" />
-        <div className="profile">
-          <strong>215433</strong>
-          <span>GETIC-SIS</span>
-        </div>
-      </User>
+      <Link to='/'>
+        <User>
+          <img src={avatar} alt="Avatar do colaborador" className="avatar" />
+          <div className="profile">
+            <strong>215433</strong>
+            <span>GETIC-SIS</span>
+          </div>
+        </User>
+      </Link>
 
       {sidebar.map((items) => {
         const { session, sessionItems, isProtected } = items;

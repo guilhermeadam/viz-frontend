@@ -1,10 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
 
 export default function Router() {
   return (
     <Routes>
-      <Route path='/' element={<strong>Root path</strong>} />
-      <Route path='/home' element={<strong>Home</strong>} />
+      <Route path='/' element={<Home />} />
+      <Route path='*' element={<strong>Em desenvolvimento!</strong>} />
+      <Route path='/notification' element={<strong>Notificações</strong>} />
     </Routes>
   );
 }
