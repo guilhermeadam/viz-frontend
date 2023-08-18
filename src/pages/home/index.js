@@ -25,7 +25,7 @@ export default function Home() {
         setIsLoading(true);
 
         const response = await pentaho.get('plugin/pentaho-cdf/api/cdf-embed.js');
-        const parsedResponse = parseCdf(response.data);
+        const parsedResponse = await parseCdf(response.data);
 
         setRoles(parsedResponse.roles);
         setUser(parsedResponse.user);

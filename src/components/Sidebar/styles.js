@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   padding: 16px;
 
-  background: ${({ theme }) => theme.colors.slate[100]};
+  background: linear-gradient(140deg, rgba(0,159,227,1) 35%, rgba(203,214,30,1) 90%);
 `;
 
 export const User = styled.div`
@@ -19,6 +19,9 @@ export const User = styled.div`
   .avatar {
     width: 44px;
     height: 44px;
+
+    border-radius: 22px;
+    border: 4px solid #FFF;
   }
 
   .profile {
@@ -46,4 +49,6 @@ export const ItemSession = styled.div`
   > span {
     margin-left: 12px;
   }
+
+
 `;

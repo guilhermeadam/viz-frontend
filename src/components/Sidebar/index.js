@@ -15,7 +15,6 @@ import {
 import avatar from '../../assets/images/avatar.svg';
 import sidebar from '../../assets/resources/sidebarItems';
 
-
 export default function Sidebar() {
   const [user, setUser] = useState('');
   const [roles, setRoles] = useState([]);
