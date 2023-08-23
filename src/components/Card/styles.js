@@ -8,11 +8,11 @@ export const Container = styled.div`
   padding: 16px;
 
   transition: 0.2s ease-in;
-
+  border: 1px solid #ccc;
   cursor: pointer;
 
   border-radius: 4px;
-  background: linear-gradient(140deg, rgba(0,159,227,1) 35%, rgba(203,214,30,1) 90%);
+  background: ${({ theme }) => theme.colors.cagece.backgroundCard};
 
   > button {
     margin-top: auto;
@@ -20,11 +20,10 @@ export const Container = styled.div`
 
   > span {
     margin-top: 4px;
-    color: ${({ theme }) => theme.colors.slate[50]};
+    color: #2b2b2b;
   }
 
   &:hover {
-    background: linear-gradient(90deg, rgba(0,159,227,1) 45%, rgba(203,214,30,1) 80%);
     border-top-right-radius: 64px;
     border-bottom-left-radius: 64px;
   }

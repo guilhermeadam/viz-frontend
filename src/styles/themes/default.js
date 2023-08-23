@@ -1,6 +1,9 @@
 export default {
   colors: {
     cagece: {
+      backgroundSidebar: '#181818',
+      colorHeaderPage: 'rgba(0, 0, 0, 0.85)',
+      backgroundCard: '#f7f7f7',
       blue: {
         50: '#eff9ff',
         100: '#def2ff',

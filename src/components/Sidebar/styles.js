@@ -9,7 +9,8 @@ export const Container = styled.div`
 
   padding: 16px;
 
-  background: linear-gradient(140deg, rgba(0,159,227,1) 35%, rgba(203,214,30,1) 90%);
+  /* background: linear-gradient(140deg, rgba(0,159,227,1) 35%, rgba(203,214,30,1) 90%); */
+  background: ${({ theme }) => theme.colors.cagece.backgroundSidebar};
 `;
 
 export const User = styled.div`

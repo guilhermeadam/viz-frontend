@@ -10,7 +10,6 @@ import Sidebar from './components/Sidebar';
 import Router from './routes';
 
 function App() {
-
   return (
     <HashRouter>
       <ThemeProvider theme={DefaultTheme}>
