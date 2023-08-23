@@ -49,13 +49,13 @@ export default function Analytics() {
 
   const ANALYTICS_KEY = 3;
 
-  const analyticsResourcesFilter = resources.filter((analytics) => analytics.status === 'ativo' && analytics.typeId === ANALYTICS_KEY);
+  const analyticsResourcesFilter = resources.filter((analytic) => analytic.status === 'ativo' && analytic.typeId === ANALYTICS_KEY);
 
-  const modules = [...new Set(analyticsResourcesFilter.map(a => a.moduleDescription))];
+  const analyticsResourcesFilteredUserRoles = analyticsResourcesFilter.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
 
-  const analyticsResources = module === '' ? analyticsResourcesFilter.filter((resource) => resource.moduleDescription === resource.moduleDescription) : analyticsResourcesFilter.filter((resource) => resource.moduleDescription === module);
+  const modules = [...new Set(analyticsResourcesFilteredUserRoles.map(a => a.moduleDescription))];
 
-  const analyticsResourcesFilteredUserRoles = analyticsResources.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
+  const analyticsResourcesFilteredModule = analyticsResourcesFilteredUserRoles.filter((analytic) => analytic.moduleDescription === (module === '' ? analytic.moduleDescription : module));
 
   return (
     <Container>
@@ -77,8 +77,8 @@ export default function Analytics() {
         </Select>
         <FiSearch />
       </FilterSection>
-      <CardContainer>
-        {analyticsResourcesFilteredUserRoles.map((resource) => (
+      <CardContainer lengthResource={analyticsResourcesFilteredModule.length}>
+        {analyticsResourcesFilteredModule.map((resource) => (
           <Card
             key={resource.id}
             title={resource.name}

@@ -51,12 +51,12 @@ export default function Dashboard() {
 
   const dashboardResourcesFilter = resources.filter((dashboard) => dashboard.status === 'ativo' && dashboard.typeId === DAHSBOARD_KEY);
 
-  const modules = [...new Set(dashboardResourcesFilter.map(a => a.moduleDescription))];
+  const dashboardResourcesFilteredUserRoles = dashboardResourcesFilter.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
 
-  const dashboardResources = module === '' ? dashboardResourcesFilter.filter((resource) => resource.moduleDescription === resource.moduleDescription) : dashboardResourcesFilter.filter((resource) => resource.moduleDescription === module);
+  const modules = [...new Set(dashboardResourcesFilteredUserRoles.map(a => a.moduleDescription))];
 
-  const dashboardResourcesFilteredUserRoles = dashboardResources.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
-
+  const dashboardResourcesFilteredModule = dashboardResourcesFilteredUserRoles.filter((dashboard) => dashboard.moduleDescription === (module === '' ? dashboard.moduleDescription : module));
+  
   return (
     <Container>
       <Loader isLoading={isLoading} />
@@ -78,7 +78,7 @@ export default function Dashboard() {
         <FiSearch />
       </FilterSection>
       <CardContainer>
-        {dashboardResourcesFilteredUserRoles.map((resource) => (
+        {dashboardResourcesFilteredModule.map((resource) => (
           <Card
             key={resource.id}
             title={resource.name}

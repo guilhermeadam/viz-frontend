@@ -2,7 +2,7 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/global';
-import DefaultTheme from './styles/themes/default';
+import CageceTheme from './styles/themes/cagece';
 
 import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
@@ -12,7 +12,7 @@ import Router from './routes';
 function App() {
   return (
     <HashRouter>
-      <ThemeProvider theme={DefaultTheme}>
+      <ThemeProvider theme={CageceTheme}>
         <GlobalStyles />
         <Layout>
           <Sidebar />

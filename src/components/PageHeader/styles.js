@@ -10,12 +10,12 @@ export const Header = styled.div`
   > svg {
     width: 28px;
     height: 28px;
-    color: ${({ theme }) => theme.colors.cagece.colorHeaderPage}
+    color: ${({ theme }) => theme.colors.sidebar.background}
   }
 
   > strong {
     font-size: 28px;
     margin-left: 12px;
-    color: ${({ theme }) => theme.colors.cagece.colorHeaderPage}
+    color: ${({ theme }) => theme.colors.sidebar.background}
   }
 `;

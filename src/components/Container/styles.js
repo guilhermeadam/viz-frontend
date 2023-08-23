@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
     flex-direction: column;
     overflow-y: auto;
 
-    background: '#FFFFFF';
+    background: '#EEEEEE';
 `;

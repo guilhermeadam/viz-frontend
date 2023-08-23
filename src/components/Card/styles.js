@@ -12,11 +12,12 @@ export const Container = styled.div`
   cursor: pointer;
 
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.cagece.backgroundCard};
+  background: '#EEEEEE';
 
   > button {
     margin-top: auto;
   }
+  
 
   > span {
     margin-top: 4px;
@@ -37,11 +38,11 @@ export const TitleContainer = styled.div`
 > svg {
     height: 20px;
     width: 20px;
-    color: #FFF;
+    color: #2b2b2b;
   }
 
   > strong {
-    color: #FFF;
+    color: #2b2b2b;
     font-size: 20px;
     margin-left: 8px;
   }

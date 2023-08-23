@@ -5,7 +5,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
 
   body {
@@ -19,9 +19,5 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
     cursor: pointer;
-  }
-
-  svg, strong, span {
-      color: ${({ theme }) => theme.colors.cagece.blue[50]};
   }
 `;

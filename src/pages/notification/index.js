@@ -59,7 +59,7 @@ export default function Notification() {
           <div className="body">
             <strong>{notification.title}</strong>
             <span>{notification.description}</span>
-            <span>Expira em: 20/08/2023 14:00 </span>
+            <span>Expira em: {new Date(notification.expiration).toLocaleDateString()} </span>
           </div>
         </NotificationCard>
       ))}

@@ -8,23 +8,21 @@ import Loader from '../../components/Loader';
 
 import { api, pentaho } from '../../services/api';
 
-import { FiBox, FiSearch } from 'react-icons/fi';
+import { FiBarChart2, FiSun, FiSearch } from 'react-icons/fi';
 import { CardContainer, FilterSection } from './styles';
 
 import { parseResource } from '../../utils/parseResource';
 import { parseCdf } from '../../utils/parseCdf';
 
-export default function Analyzer() {
-  const [module, setModule] = useState('00 - CONTROLE');
+export default function Documentation() {
+  const [module, setModule] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [resources, setResources] = useState([]);
   const [userRoles, setUserRoles] = useState([]);
 
-  const ANALYZER_KEY = 1;
-
   useEffect(() => {
 
-    async function loadAnalyzerResources() {
+    async function loadDashboardResources() {
       try {
         setIsLoading(true);
 
@@ -36,7 +34,6 @@ export default function Analyzer() {
 
         setResources(parsedResource);
         setUserRoles(parsedResponsePentaho.roles);
-
       }
       catch(error) {
         console.log('$Error: ', error);
@@ -46,25 +43,27 @@ export default function Analyzer() {
       }
     }
 
-    loadAnalyzerResources();
+    loadDashboardResources();
 
   }, []);
 
-  const analyzerResourcesFilter = resources.filter((analyzer) => analyzer.status === 'ativo' && analyzer.typeId === ANALYZER_KEY);
+  const DOCUMENTATION_KEY = 5;
 
-  const analyzerResourcesFilteredUserRoles = analyzerResourcesFilter.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
+  const documentationResourcesFilter = resources.filter((documentation) => documentation.status === 'ativo' && documentation.typeId === DOCUMENTATION_KEY);
 
-  const modules = [...new Set(analyzerResourcesFilteredUserRoles.map(a => a.moduleDescription))];
+  const documentationResourcesFilteredUserRoles = documentationResourcesFilter.filter(resource => resource.roles.split(', ').some(r => userRoles.includes(r)));
 
-  const analyzerResourcesFilteredModule = analyzerResourcesFilteredUserRoles.filter((analyzer) => analyzer.moduleDescription === module);
+  const modules = [...new Set(documentationResourcesFilteredUserRoles.map(a => a.moduleDescription))];
 
+  const documentationResourcesFilteredModule = documentationResourcesFilteredUserRoles.filter((documentation) => documentation.moduleDescription === (module === '' ? documentation.moduleDescription : module));
+  
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
       <PageHeader
-        title='Analyzer'
-        icon={<FiBox />}
+        title='Documentação'
+        icon={<FiBarChart2 />}
       />
       <FilterSection>
         <Select
@@ -79,13 +78,13 @@ export default function Analyzer() {
         <FiSearch />
       </FilterSection>
       <CardContainer>
-        {analyzerResourcesFilteredModule.map((resource) => (
+        {documentationResourcesFilteredModule.map((resource) => (
           <Card
             key={resource.id}
             title={resource.name}
             description={resource.description}
             path={resource.path}
-            icon={<FiBox />}
+            icon={<FiSun />}
           />
         ))}
       </CardContainer>

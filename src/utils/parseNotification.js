@@ -4,6 +4,7 @@ export function parseNotification(notification){
     'title' :notification[1],
     'description' : notification[2],
     'roles' : notification[4],
-    'type' : notification[7]
+    'type' : notification[7],
+    'expiration' : notification[6]
   };
 }

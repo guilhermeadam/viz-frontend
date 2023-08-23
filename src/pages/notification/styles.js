@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const NotificationCard = styled.div`
   width: 100%;
-  background: ${({ theme, type }) => type === 'success' ? theme.colors.green[300]
-    : type === 'warning' ? theme.colors.yellow[300]
-      : type === 'error' ? theme.colors.red[300] : theme.colors.blue[300]};
+  background: ${({ theme, type }) => type === 'success' ? theme.colors.notification.success
+    : type === 'warning' ? theme.colors.notification.warning
+      : type === 'error' ? theme.colors.notification.error : theme.colors.notification.info};
 
   border-radius: 4px;
 
@@ -14,11 +14,9 @@ export const NotificationCard = styled.div`
   margin-bottom: 8px;
 
   svg {
-    width: 52px;
-    height: 52px;
-    color: ${({ theme, type }) => type === 'success' ? theme.colors.green[700]
-    : type === 'warning' ? theme.colors.yellow[700]
-      : type === 'error' ? theme.colors.red[700] : theme.colors.blue[700]};
+    width: 44px;
+    height: 44px;
+    color: ${({ theme }) => theme.colors.gray};
   }
 
   .body {
@@ -29,24 +27,20 @@ export const NotificationCard = styled.div`
 
     strong {
       font-size: 24px;
-      color: ${({ theme, type }) => type === 'success' ? theme.colors.green[700]
-    : type === 'warning' ? theme.colors.yellow[700]
-      : type === 'error' ? theme.colors.red[700] : theme.colors.blue[700]};
+      color: ${({ theme }) => theme.colors.gray};
     }
 
     span {
       font-size: 20px;
-      color: ${({ theme, type }) => type === 'success' ? theme.colors.green[700]
-    : type === 'warning' ? theme.colors.yellow[700]
-      : type === 'error' ? theme.colors.red[700] : theme.colors.blue[700]};
+      color: ${({ theme }) => theme.colors.gray};
     }
 
     span + span {
       margin-top: 20px;
       font-size: 16px;
-      color: ${({ theme, type }) => type === 'success' ? theme.colors.green[700]
-    : type === 'warning' ? theme.colors.yellow[700]
-      : type === 'error' ? theme.colors.red[700] : theme.colors.blue[700]};
+      color: ${({ theme }) => theme.colors.gray};
+
+      line-height: 1.5em
     }
 
   }

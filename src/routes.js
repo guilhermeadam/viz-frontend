@@ -5,6 +5,7 @@ import Notification from './pages/notification';
 import Analyzer from './pages/analyzer';
 import Dashboard from './pages/dashboard';
 import Analytics from './pages/analytics';
+import Documentation from './pages/documentation';
 
 export default function Router() {
   return (
@@ -15,6 +16,7 @@ export default function Router() {
       <Route path='/analyzer' element={<Analyzer />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/analytics' element={<Analytics />} />
+      <Route path='/documentation' element={<Documentation />} />
     </Routes>
   );
 }

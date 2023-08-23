@@ -18,6 +18,7 @@ import sidebar from '../../assets/resources/sidebarItems';
 export default function Sidebar() {
   const [user, setUser] = useState('');
   const [roles, setRoles] = useState([]);
+  const [selectedItem, setSelectedItem] = useState('home');
 
   useEffect(() => {
     async function loadUser() {
@@ -35,17 +36,24 @@ export default function Sidebar() {
     loadUser();
   }, []);
 
+  function handleSelectedItem(itemSelected) {
+    const item = selectedItem === itemSelected ? '' : itemSelected;
+    setSelectedItem(item);
+  }
+
   const isAdmin = roles.includes('Administrator');
+
+  console.log(selectedItem);
 
   return (
     <Container>
 
-      <Link to='/'>
+      <Link to='/' onClick={() => handleSelectedItem('home')} isSelected={selectedItem}>
         <User>
           <img src={avatar} alt="Avatar do colaborador" className="avatar" />
           <div className="profile">
-            <strong>{user}</strong>
-            {isAdmin ? <span>Administrator</span> : <span>Colaborador</span>}
+            <strong>{user.toUpperCase()}</strong>
+            {isAdmin ? <span>Administrador</span> : <span>Colaborador</span>}
           </div>
         </User>
       </Link>
@@ -64,9 +72,11 @@ export default function Sidebar() {
                 {sessionItems.map((sessionItem) => {
                   const { name, path, Icon } = sessionItem;
 
+                  const isSelected = selectedItem === name;
+
                   return (
-                    <Link key={name} to={path} onClick={() => console.log(name)}>
-                      <ItemSession>
+                    <Link key={name} to={path} onClick={() => handleSelectedItem(name)}>
+                      <ItemSession isSelected={isSelected}>
                         <Icon />
                         <span>{name}</span>
                       </ItemSession>

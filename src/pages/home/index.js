@@ -41,6 +41,10 @@ export default function Home() {
     loadUserProfile();
   }, []);
 
+  const today = new Date(1732935600000);
+
+  console.log(today.toLocaleDateString());
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
@@ -51,7 +55,7 @@ export default function Home() {
         <User>
           <img src={avatar} alt="Avatar do Colaborador" className="avatar" />
           <div className="user-roles">
-            {(roles.length === 0 && !isLoading) && <strong>Olá {user} não há recursos cadastrados para você, quaisquer dúvidas contatar o administrador.</strong>}
+            {(roles.length === 0 && !isLoading) && <strong>Olá {user.toUpperCase()} não há recursos cadastrados para você, quaisquer dúvidas contatar o administrador.</strong>}
             {roles.map((role) => (
               <Role key={role}>
                 <strong>{role.toLocaleUpperCase()}</strong>
