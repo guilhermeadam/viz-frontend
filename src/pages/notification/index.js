@@ -50,7 +50,7 @@ export default function Notification() {
       <Loader isLoading={isLoading} />
 
       <PageHeader title='Notificações' icon={<FiBell />} />
-      {notificationsFilteredUserRoles.length === 0 && <Default message='Não existem notificações disponíveis para você.' />}
+      {notificationsFilteredUserRoles.length === 0 && <Default type='notification' message='Não existem notificações disponíveis para você.' />}
       {notificationsFilteredUserRoles.map((notification) => (
         <NotificationCard type={notification.type} key={notification.id}>
           {notification.type === 'info' && <FiAlertCircle />}
