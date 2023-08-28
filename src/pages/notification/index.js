@@ -10,6 +10,7 @@ import { FiBell, FiCheckCircle ,FiAlertCircle, FiAlertOctagon, FiAlertTriangle }
 
 import { parseNotification } from '../../utils/parseNotification';
 import { parseCdf } from '../../utils/parseCdf';
+import Default from '../../components/Default';
 
 export default function Notification() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,7 @@ export default function Notification() {
       <Loader isLoading={isLoading} />
 
       <PageHeader title='Notificações' icon={<FiBell />} />
-      {notificationsFilteredUserRoles.length === 0 && <strong>Não existem notificações disponíveis para você.</strong>}
+      {notificationsFilteredUserRoles.length === 0 && <Default message='Não existem notificações disponíveis para você.' />}
       {notificationsFilteredUserRoles.map((notification) => (
         <NotificationCard type={notification.type} key={notification.id}>
           {notification.type === 'info' && <FiAlertCircle />}

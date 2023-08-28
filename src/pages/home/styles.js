@@ -19,10 +19,17 @@ export const User = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   .avatar {
     width: 100px;
     margin-bottom: 16px;
+  }
+
+  .user-roles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

@@ -41,21 +41,18 @@ export default function Home() {
     loadUserProfile();
   }, []);
 
-  const today = new Date(1732935600000);
-
-  console.log(today.toLocaleDateString());
-
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
-      <PageHeader title={`Olá ${user}, bem-vindo(a) ao SEI`} icon={<FiCoffee />} />
+      <PageHeader title={`Olá ${user}, Bem-vindo(a) ao SEI`} icon={<FiCoffee />} />
       <ContainerHome>
 
         <User>
           <img src={avatar} alt="Avatar do Colaborador" className="avatar" />
           <div className="user-roles">
             {(roles.length === 0 && !isLoading) && <strong>Olá {user.toUpperCase()} não há recursos cadastrados para você, quaisquer dúvidas contatar o administrador.</strong>}
+            <strong>Permissões</strong>
             {roles.map((role) => (
               <Role key={role}>
                 <strong>{role.toLocaleUpperCase()}</strong>

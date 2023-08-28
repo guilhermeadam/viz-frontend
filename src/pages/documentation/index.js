@@ -8,11 +8,12 @@ import Loader from '../../components/Loader';
 
 import { api, pentaho } from '../../services/api';
 
-import { FiBarChart2, FiSun, FiSearch } from 'react-icons/fi';
+import { FiSun, FiSearch } from 'react-icons/fi';
 import { CardContainer, FilterSection } from './styles';
 
 import { parseResource } from '../../utils/parseResource';
 import { parseCdf } from '../../utils/parseCdf';
+import Default from '../../components/Default';
 
 export default function Documentation() {
   const [module, setModule] = useState('');
@@ -56,38 +57,43 @@ export default function Documentation() {
   const modules = [...new Set(documentationResourcesFilteredUserRoles.map(a => a.moduleDescription))];
 
   const documentationResourcesFilteredModule = documentationResourcesFilteredUserRoles.filter((documentation) => documentation.moduleDescription === (module === '' ? documentation.moduleDescription : module));
-  
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
       <PageHeader
         title='Documentação'
-        icon={<FiBarChart2 />}
+        icon={<FiSun />}
       />
-      <FilterSection>
-        <Select
-          autoFocus
-          value={module}
-          onChange={(event) => setModule(event.target.value)}
-        >
-          {modules.map((module) => (
-            <option key={module}>{module}</option>
-          ))}
-        </Select>
-        <FiSearch />
-      </FilterSection>
-      <CardContainer>
-        {documentationResourcesFilteredModule.map((resource) => (
-          <Card
-            key={resource.id}
-            title={resource.name}
-            description={resource.description}
-            path={resource.path}
-            icon={<FiSun />}
-          />
-        ))}
-      </CardContainer>
+
+      {documentationResourcesFilteredModule.length < 1 ? (<Default message='Não existem recursos disponíveis para você.' />) : (
+        <>
+          <FilterSection>
+            <Select
+              autoFocus
+              value={module}
+              onChange={(event) => setModule(event.target.value)}
+            >
+              {modules.map((module) => (
+                <option key={module}>{module}</option>
+              ))}
+            </Select>
+            <FiSearch />
+          </FilterSection>
+          <CardContainer>
+            {documentationResourcesFilteredModule.map((resource) => (
+              <Card
+                key={resource.id}
+                title={resource.name}
+                description={resource.description}
+                path={resource.path}
+                icon={<FiSun />}
+              />
+            ))}
+          </CardContainer>
+        </>
+      )}
     </Container>
   );
 }

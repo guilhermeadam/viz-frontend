@@ -8,9 +8,9 @@ export const FilterSection = styled.div`
   margin: 16px 0;
 
   svg {
-    height: 20px;
-    width: 20px;
-    color: #2b2b2b
+    height: 24px;
+    width: 24px;
+    color: ${({ theme }) => theme.colors.blue.primary}
   }
 `;
 

@@ -13,11 +13,16 @@ export const NotificationCard = styled.div`
   padding: 16px;
   margin-bottom: 8px;
 
+  transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+
   svg {
     width: 44px;
     height: 44px;
     color: ${({ theme }) => theme.colors.gray};
   }
+  &:hover {
+      transform: scale(1.015);
+   }
 
   .body {
     display: flex;

@@ -5,10 +5,10 @@ export default {
       background: '#181818',
     },
     notification: {
-      info: '#00A1E6',
-      success: '#A9CC00',
-      warning: '#FFBF00',
-      error: '#FF0000',
+      info: '#007db3',
+      success: '#7f9900',
+      warning: '#cc9900',
+      error: '#b30000',
     },
     gray: '#eff9ff',
     blue: {

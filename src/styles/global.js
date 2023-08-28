@@ -20,4 +20,24 @@ export default createGlobalStyle`
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #B3DBED 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00A1E6 0% 0% no-repeat padding-box;
+    width: 8px;
+    border-radius: 8px;
+  }
+
 `;

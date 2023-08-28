@@ -13,6 +13,7 @@ import { CardContainer, FilterSection } from './styles';
 
 import { parseResource } from '../../utils/parseResource';
 import { parseCdf } from '../../utils/parseCdf';
+import Default from '../../components/Default';
 
 export default function Analyzer() {
   const [module, setModule] = useState('00 - CONTROLE');
@@ -66,29 +67,35 @@ export default function Analyzer() {
         title='Analyzer'
         icon={<FiBox />}
       />
-      <FilterSection>
-        <Select
-          autoFocus
-          value={module}
-          onChange={(event) => setModule(event.target.value)}
-        >
-          {modules.map((module) => (
-            <option key={module}>{module}</option>
-          ))}
-        </Select>
-        <FiSearch />
-      </FilterSection>
-      <CardContainer>
-        {analyzerResourcesFilteredModule.map((resource) => (
-          <Card
-            key={resource.id}
-            title={resource.name}
-            description={resource.description}
-            path={resource.path}
-            icon={<FiBox />}
-          />
-        ))}
-      </CardContainer>
+
+      {analyzerResourcesFilteredModule.length < 1 ? (<Default message='Não existem recursos disponíveis para você.' />) : (
+        <>
+          <FilterSection>
+            <Select
+              autoFocus
+              value={module}
+              onChange={(event) => setModule(event.target.value)}
+            >
+              {modules.map((module) => (
+                <option key={module}>{module}</option>
+              ))}
+            </Select>
+            <FiSearch />
+          </FilterSection>
+          <CardContainer>
+            {analyzerResourcesFilteredModule.map((resource) => (
+              <Card
+                key={resource.id}
+                title={resource.name}
+                description={resource.description}
+                path={resource.path}
+                icon={<FiBox />}
+              />
+            ))}
+          </CardContainer>
+        </>
+      )}
+
     </Container>
   );
 }

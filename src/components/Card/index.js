@@ -1,4 +1,4 @@
-import { Container, TitleContainer } from './styles';
+import { Container, TitleContainer, Marker } from './styles';
 
 import { handleOpenResource } from '../../utils/handleOpenResource';
 
@@ -7,6 +7,7 @@ export default function Card({
 }) {
   return (
     <Container onClick={() => handleOpenResource(title, description, path)}>
+      <Marker />
       <TitleContainer>
         {icon}
         <strong>{title}</strong>

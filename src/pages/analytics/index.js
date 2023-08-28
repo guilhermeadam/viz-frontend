@@ -8,11 +8,12 @@ import Loader from '../../components/Loader';
 
 import { api, pentaho } from '../../services/api';
 
-import { FiBox, FiSearch, FiTablet } from 'react-icons/fi';
+import { FiSearch, FiTablet } from 'react-icons/fi';
 import { CardContainer, FilterSection } from './styles';
 
 import { parseResource } from '../../utils/parseResource';
 import { parseCdf } from '../../utils/parseCdf';
+import Default from '../../components/Default';
 
 export default function Analytics() {
   const [module, setModule] = useState('');
@@ -65,29 +66,34 @@ export default function Analytics() {
         title='Analytics'
         icon={<FiTablet />}
       />
-      <FilterSection>
-        <Select
-          autoFocus
-          value={module}
-          onChange={(event) => setModule(event.target.value)}
-        >
-          {modules.map((module) => (
-            <option key={module}>{module}</option>
-          ))}
-        </Select>
-        <FiSearch />
-      </FilterSection>
-      <CardContainer lengthResource={analyticsResourcesFilteredModule.length}>
-        {analyticsResourcesFilteredModule.map((resource) => (
-          <Card
-            key={resource.id}
-            title={resource.name}
-            description={resource.description}
-            path={resource.path}
-            icon={<FiBox />}
-          />
-        ))}
-      </CardContainer>
+
+      {analyticsResourcesFilteredModule.length < 1 ? (<Default message='Não existem recursos disponíveis para você.' />) : (
+        <>
+          <FilterSection>
+            <Select
+              autoFocus
+              value={module}
+              onChange={(event) => setModule(event.target.value)}
+            >
+              {modules.map((module) => (
+                <option key={module}>{module}</option>
+              ))}
+            </Select>
+            <FiSearch />
+          </FilterSection>
+          <CardContainer>
+            {analyticsResourcesFilteredModule.map((resource) => (
+              <Card
+                key={resource.id}
+                title={resource.name}
+                description={resource.description}
+                path={resource.path}
+                icon={<FiTablet />}
+              />
+            ))}
+          </CardContainer>
+        </>
+      )}
     </Container>
   );
 }

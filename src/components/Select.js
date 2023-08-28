@@ -3,19 +3,19 @@ import styled from 'styled-components';
 export default styled.select`
   width: 100%;
   border: none;
-  background: #fff;
-  border: 2px solid #d0d5db;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  background: #FCFCFC 0% 0% no-repeat padding-box;
+  border: 1px solid #C9C9C9;
   height: 52px;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   padding: 0 16px;
   font-size: 16px;
   transition: border-color 0.2s ease-in;
   appearance: none;
+  opacity: 1;
 
   &:focus {
-    border-color: #2b2b2b;
+    border-color: ${({ theme }) => theme.colors.blue.primary};
   }
 
 `;
