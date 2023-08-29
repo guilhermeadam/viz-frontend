@@ -7,16 +7,23 @@ import Dashboard from './pages/dashboard';
 import Analytics from './pages/analytics';
 import Documentation from './pages/documentation';
 
+import Validation from './pages/validation';
+import Liberation from './pages/liberation';
+
 export default function Router() {
   return (
     <Routes>
+      <Route path='*' element={<strong>Em desenvolvimento.</strong>} />
+
       <Route path='/' element={<Home />} />
-      <Route path='*' element={<strong>Em desenvolvimento!</strong>} />
       <Route path='/notification' element={<Notification />} />
       <Route path='/analyzer' element={<Analyzer />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/analytics' element={<Analytics />} />
       <Route path='/documentation' element={<Documentation />} />
+
+      <Route path='/validation' element={<Validation />} />
+      <Route path='/liberation' element={<Liberation />} />
     </Routes>
   );
 }

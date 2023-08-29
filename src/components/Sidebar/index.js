@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { pentaho } from '../../services/api';
 import { parseCdf } from '../../utils/parseCdf';
-
-import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -42,8 +41,6 @@ export default function Sidebar() {
   }
 
   const isAdmin = roles.includes('Administrator');
-
-  console.log(selectedItem);
 
   return (
     <Container>

@@ -55,13 +55,13 @@ const sidebar = [
     sessionItems: [
       {
         name: 'Validação',
-        path: '/sei/#/processos/validacao',
+        path: '/validation',
         Icon: FiCheckCircle,
         dev: true,
       },
       {
         name: 'Liberação',
-        path: '/sei/#/processos/liberacao',
+        path: '/liberation',
         Icon: FiShield,
         dev: true,
       }
