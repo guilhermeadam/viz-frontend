@@ -71,8 +71,6 @@ export default function Sidebar() {
 
                   const isSelected = selectedItem === name;
 
-                  console.log({name: name, isSelected: isSelected, selectedItem: selectedItem});
-
                   return (
                     <Link key={name} to={path} onClick={() => handleSelectedItem(name)}>
                       <ItemSession isSelected={isSelected}>
