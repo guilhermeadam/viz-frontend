@@ -15,8 +15,8 @@ export default function Router() {
     <Routes>
       <Route path='*' element={<strong>Em desenvolvimento.</strong>} />
 
-      <Route path='/' element={<Home />} />
-      <Route path='/notification' element={<Notification />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<Notification />} />
       <Route path='/analyzer' element={<Analyzer />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/analytics' element={<Analytics />} />

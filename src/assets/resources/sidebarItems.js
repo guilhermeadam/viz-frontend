@@ -19,7 +19,7 @@ const sidebar = [
     sessionItems: [
       {
         name: 'Notificação',
-        path: '/notification',
+        path: '/',
         Icon: FiBell,
         dev: false,
       },

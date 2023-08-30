@@ -17,7 +17,7 @@ import sidebar from '../../assets/resources/sidebarItems';
 export default function Sidebar() {
   const [user, setUser] = useState('');
   const [roles, setRoles] = useState([]);
-  const [selectedItem, setSelectedItem] = useState('home');
+  const [selectedItem, setSelectedItem] = useState('Notificação');
 
   useEffect(() => {
     async function loadUser() {
@@ -45,7 +45,7 @@ export default function Sidebar() {
   return (
     <Container>
 
-      <Link to='/' onClick={() => handleSelectedItem('home')} isSelected={selectedItem}>
+      <Link to='/home' onClick={() => handleSelectedItem('home')} isSelected={selectedItem}>
         <User>
           <img src={avatar} alt="Avatar do colaborador" className="avatar" />
           <div className="profile">
@@ -67,9 +67,11 @@ export default function Sidebar() {
                 </TitleSession>
 
                 {sessionItems.map((sessionItem) => {
-                  const { name, path, Icon } = sessionItem;
+                  const { name , path, Icon } = sessionItem;
 
                   const isSelected = selectedItem === name;
+
+                  console.log({name: name, isSelected: isSelected, selectedItem: selectedItem});
 
                   return (
                     <Link key={name} to={path} onClick={() => handleSelectedItem(name)}>
