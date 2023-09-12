@@ -10,6 +10,8 @@ import Documentation from './pages/documentation';
 import Validation from './pages/validation';
 import Liberation from './pages/liberation';
 
+import Management from './pages/management';
+
 export default function Router() {
   return (
     <Routes>
@@ -24,6 +26,8 @@ export default function Router() {
 
       <Route path='/validation' element={<Validation />} />
       <Route path='/liberation' element={<Liberation />} />
+
+      <Route path='/management' element={<Management />} />
     </Routes>
   );
 }
